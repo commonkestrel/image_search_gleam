@@ -29,31 +29,35 @@ pub fn new(keywords: String) -> Query {
 }
 
 pub fn with_limit(query: Query, limit: Option(Int)) -> Query {
-  Query(
-    keywords: query.keywords,
-    limit: limit,
-    color: query.color,
-    color_type: query.color_type,
-    license: query.license,
-    image_type: query.image_type,
-    time: query.time,
-    ratio: query.ratio,
-    format: query.format,
-  )
+  Query(..query, limit: limit)
 }
 
 pub fn with_color(query: Query, color: Option(Color)) -> Query {
-  Query(
-    keywords: query.keywords,
-    limit: query.limit,
-    color: color,
-    color_type: query.color_type,
-    license: query.license,
-    image_type: query.image_type,
-    time: query.time,
-    ratio: query.ratio,
-    format: query.format,
-  )
+  Query(..query, color: color)
+}
+
+pub fn with_color_type(query: Query, color_type: Option(ColorType)) -> Query {
+  Query(..query, color_type: color_type)
+}
+
+pub fn with_license(query: Query, license: Option(License)) -> Query {
+  Query(..query, license: license)
+}
+
+pub fn with_image_type(query: Query, image_type: Option(ImageType)) -> Query {
+  Query(..query, image_type: image_type)
+}
+
+pub fn with_time(query: Query, time: Option(Time)) -> Query {
+  Query(..query, time: time)
+}
+
+pub fn with_ratio(query: Query, ratio: Option(Ratio)) -> Query {
+  Query(..query, ratio: ratio)
+}
+
+pub fn with_format(query: Query, format: Option(Format)) -> Query {
+  Query(..query, format: format)
 }
 
 pub fn format_parameters(query: Query) -> String {
